@@ -1,1 +1,1 @@
-# Permission un shell
+# Permissions in shell
