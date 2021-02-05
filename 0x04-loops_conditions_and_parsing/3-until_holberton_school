@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#Script to print a string 10 times
+
+count=1
+until [ $count -gt 10 ]
+do
+    echo "Holberton School"
+    ((count=count+1))
+done
