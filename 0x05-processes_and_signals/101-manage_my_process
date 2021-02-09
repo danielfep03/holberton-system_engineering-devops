@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#
+# Start, stop, restart process
 
 if [[ $1 == 'start' ]]
 then
