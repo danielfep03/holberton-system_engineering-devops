@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Creat file, display message, and delete the file
+echo $$ > /var/run/holbertonscript.pid
+trap 'echo I hate the kill command ; rm -rf /var/run/holbertonscript.pid ; exit 0' SIGTERM
+trap 'echo Y U no love me?! ; rm -rf /var/run/holbertonscript.pid' SIGINT
+trap 'rm -rf /var/run/holbertonscript.pid ; exit 0'  SIGQUIT 
+
+while true
+do
+	echo "To infinity and beyond"
+	sleep 2
+done
