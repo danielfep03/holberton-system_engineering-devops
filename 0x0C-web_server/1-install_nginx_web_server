@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Script that Install Nginx
+sudo apt update
+sudo apt install nginx
+echo "Holberton School" > /var/www/html/index.nginx-debian.html
+sudo service nginx stop
+sudo service nginx start
