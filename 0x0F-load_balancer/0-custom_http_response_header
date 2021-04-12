@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Script that Install Nginx and add a new header variable
+# shellcheck disable=SC2086
+sudo apt update
+sudo apt install nginx -y
+command=$(hostnamectl | cut -d " " -f 6 | head -n 1)
+echo $command
+sudo sed -i 's/location \/ {/location \/ {\n\tadd_header X-Served-By '"$command"';/' ~/file
+sudo service nginx stop
+sudo service nginx start
