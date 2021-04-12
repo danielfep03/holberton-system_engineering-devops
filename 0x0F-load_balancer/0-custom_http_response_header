@@ -5,6 +5,5 @@ sudo apt update
 sudo apt install nginx -y
 command=$(hostnamectl | cut -d " " -f 6 | head -n 1)
 echo $command
-sudo sed -i 's/[^#]*location \/ {/location \/ {\n\tadd_header X-Served-By '"$command"';/' ~/file
-sudo service nginx stop
-sudo service nginx start
+sudo sed -i 's/as directory, then fall back to display a 404./\n\t\tadd_header X-Served-By '"$command"';/' /etc/nginx/sites-available/default
+sudo service nginx restart
