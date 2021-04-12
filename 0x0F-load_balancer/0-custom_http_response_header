@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 # Script that Install Nginx and add a new header variable
 # shellcheck disable=SC2086
-sudo apt update
-sudo apt install nginx -y
+apt update
+apt install nginx -y
 command=$(hostnamectl | cut -d " " -f 6 | head -n 1)
-echo $command
-sudo sed -i 's/as directory, then fall back to displaying a 404./\n\t\tadd_header X-Served-By '"$command"';/' /etc/nginx/sites-available/default
-sudo service nginx restart
+sed -i 's/as directory, then fall back to displaying a 404./\n\t\tadd_header X-Served-By '"$command"';/' /etc/nginx/sites-available/default
+service nginx restart 
