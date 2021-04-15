@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Debbug server
+PID=$(pgrep -a nginx | head -n 1 | cut -d " " -f 1) 
+kill -9 "$PID"
+pkill -u www-data
+cp /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
+service nginx restart
