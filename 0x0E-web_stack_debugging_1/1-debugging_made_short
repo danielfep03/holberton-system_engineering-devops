@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 # Make your fix short and sweet.
-pgrep nginx | xargs kill
 cp /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
-service restart
+pgrep nginx | xargs kill
