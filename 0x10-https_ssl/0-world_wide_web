@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Audit Domain
+# shellcheck disable=SC2086
+
+if [[ $# -eq 1 ]]
+then
+    dig www."$1"| grep -i  -A1 "Answer section" | tail -n 1 | awk -F '\t' '{print "The subdomain www is a A record and points to "  $5}'
+    dig lb-01."$1"| grep -i  -A1 "Answer section" | tail -n 1 | awk -F '\t' '{print "The subdomain lo-01 is a A record and points to "  $5}'
+    dig web-01."$1"| grep -i  -A1 "Answer section" | tail -n 1 | awk -F '\t' '{print "The subdomain web-01 is a A record and points to "  $4}'
+    dig web-02."$1"| grep -i  -A1 "Answer section" | tail -n 1 | awk -F '\t' '{print "The subdomain web-02 is a A record and points to "  $4}'
+elif [[ $# -eq 2 ]]
+then
+    line=$(dig "$2.$1" | grep -A1 'ANSWER SECTION' | tail -1)
+   echo "The subdomain $(echo "$line" | awk -F'.' '{print $1;}') is a $(echo "$line" | awk -F' ' '{print $4;}') record and points to $(echo "$line" | awk -F' ' '{print $5;}')"
+fi
