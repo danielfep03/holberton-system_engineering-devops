@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 '''Script that use an API to show information about his Todo list progress'''
-from sys import argv
 import requests
+from sys import argv
 
 
 if __name__ == '__main__':
